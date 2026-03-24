@@ -61,7 +61,7 @@ export default defineConfig({
 
     footer: {
       message: '本站内容基于 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans" target="_blank" rel="noreferrer">CC BY-NC-SA 4.0</a> 许可协议发布。',
-      copyright: 'Copyright © 2024-present miniyu157'
+      copyright: '© 2026 Yumeka<miniyu157@163.com>'
     },
     
     docFooter: {
