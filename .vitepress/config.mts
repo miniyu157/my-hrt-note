@@ -4,7 +4,7 @@ import { generateSidebar } from 'vitepress-sidebar'
 export default defineConfig({
   lang: 'zh-Hans',
   cleanUrls: true,
-  title: "My HRT Note",
+  title: "梦花的 HRT 笔记",
   description: "个人 HRT 实践记录与指南",
   srcDir: 'docs',
   lastUpdated: true,
