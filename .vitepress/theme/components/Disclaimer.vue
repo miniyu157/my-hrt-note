@@ -1,6 +1,6 @@
 <template>
   <div class="custom-disclaimer">
-    <p class="custom-disclaimer-title">！免责声明</p>
+    <p class="custom-disclaimer-title">免责声明</p>
     <p>本指南仅代表个人经验与主观观点，绝不构成任何专业医疗建议。任何关于药物的使用、剂量调整等决定，请务必遵从专业医师的指导。阅读并参考本站内容即代表您同意自行承担相关风险。</p>
   </div>
 </template>
