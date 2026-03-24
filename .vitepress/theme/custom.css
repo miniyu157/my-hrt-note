@@ -2,6 +2,24 @@
   -webkit-tap-highlight-color: transparent;
 }
 
+@font-face {
+  font-family: 'CustomFont';
+  src: url('/fonts/ChillRoundFRegular_v3.200.ttf.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --vp-font-family-base: 'CustomFont', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --vp-font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
 a:active, button:active {
   opacity: 0.7;
   transition: opacity 0.1s;
