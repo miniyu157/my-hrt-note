@@ -1,6 +1,11 @@
 import { defineConfig } from 'vitepress'
 import { generateSidebar } from 'vitepress-sidebar'
 
+import { 
+  GitChangelog, 
+  GitChangelogMarkdownSection 
+} from '@nolebase/vitepress-plugin-git-changelog/vite'
+
 export default defineConfig({
   lang: 'zh-Hans',
   cleanUrls: true,
@@ -8,6 +13,15 @@ export default defineConfig({
   description: "个人 HRT 实践记录与指南",
   srcDir: 'docs',
   lastUpdated: true,
+
+  vite: {
+    plugins: [
+      GitChangelog({
+        repoURL: () => 'https://github.com/miniyu157/my-hrt-note',
+      }),
+      GitChangelogMarkdownSection(),
+    ],
+  },
 
   themeConfig: {
     darkModeSwitchLabel: '外观',

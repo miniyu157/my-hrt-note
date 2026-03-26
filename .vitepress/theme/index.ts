@@ -4,10 +4,26 @@ import DefaultTheme from 'vitepress/theme'
 import Disclaimer from './components/Disclaimer.vue'
 import './custom.css'
 
+import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client'
+import '@nolebase/vitepress-plugin-git-changelog/client/style.css'
+
 export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('Disclaimer', Disclaimer)
+    app.use(NolebaseGitChangelogPlugin, {
+      locales: {
+        'zh-Hans': {
+          changelog: {
+            title: '修订记录',
+            noData: '暂无修订记录',
+          },
+          contributors: {
+            title: '编写',
+          },
+        },
+      },
+    })
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {

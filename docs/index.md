@@ -12,3 +12,4 @@
 
 如果有错误或者需要补充的地方，欢迎前往 [GitHub](https://github.com/miniyu157/my-hrt-note) 仓库提交 [Issues](https://github.com/miniyu157/my-hrt-note/issues) 哦！
 
+<NolebaseGitChangelog />
