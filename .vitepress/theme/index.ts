@@ -2,6 +2,7 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import Disclaimer from './components/Disclaimer.vue'
+import ReadingProgress from './components/ReadingProgress.vue'
 import './custom.css'
 
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client'
@@ -27,6 +28,7 @@ export default {
   },
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
+      'layout-top': () => h(ReadingProgress),
       'doc-footer-before': () => h('div', { class: 'custom-license' }, [
         h('p', null, [
           '本站内容基于 ',
