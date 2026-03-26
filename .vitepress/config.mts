@@ -18,6 +18,14 @@ export default defineConfig({
     plugins: [
       GitChangelog({
         repoURL: () => 'https://github.com/miniyu157/my-hrt-note',
+        mapAuthors: [
+          {
+            name: '梦花',
+            username: 'miniyu157',
+            mapByEmailAliases: ['miniyu157@163.com', '67086088+miniyu157@users.noreply.github.com'],
+            mapByNameAliases: ['padpro', 'ace3pro'],
+          }
+        ]
       }),
       GitChangelogMarkdownSection(),
     ],
