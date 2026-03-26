@@ -56,3 +56,38 @@ a:active, button:active {
 .custom-license a:hover {
   text-decoration: underline;
 }
+
+/* 打印与 PDF 导出优化 */
+@media print {
+  .VPNav, .VPLocalNav, .VPDocAside, .VPFooter, .reading-progress-bar, .custom-license {
+    display: none !important;
+  }
+
+  .VPContent {
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .VPDoc {
+    padding: 2cm !important;
+  }
+
+  body, .VPDoc {
+    background: #ffffff !important;
+    color: #000000 !important;
+  }
+
+  a {
+    color: #000000 !important;
+    text-decoration: underline !important;
+  }
+
+  pre, blockquote {
+    page-break-inside: avoid;
+    border: 1px solid #ddd;
+  }
+
+  h1, h2, h3, h4 {
+    page-break-after: avoid;
+  }
+}
