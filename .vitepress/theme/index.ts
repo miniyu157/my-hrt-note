@@ -3,6 +3,7 @@ import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import Disclaimer from './components/Disclaimer.vue'
 import ReadingProgress from './components/ReadingProgress.vue'
+import ReloadPrompt from './components/ReloadPrompt.vue'
 import './custom.css'
 
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client'
@@ -29,17 +30,23 @@ export default {
   Layout: () => {
     return h(DefaultTheme.Layout, null, {
       'layout-top': () => h(ReadingProgress),
-      'doc-footer-before': () => h('div', { class: 'custom-license' }, [
-        h('p', null, [
-          '本站内容基于 ',
-          h('a', {
-            href: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans',
-            target: '_blank',
-            rel: 'noreferrer'
-          }, 'CC BY-NC-SA 4.0'),
-          ' 许可协议发布。'
-        ])
-      ])
+      'layout-bottom': () => h(ReloadPrompt),
+      'doc-footer-before': () =>
+        h('div', { class: 'custom-license' }, [
+          h('p', null, [
+            '本站内容基于 ',
+            h(
+              'a',
+              {
+                href: 'https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans',
+                target: '_blank',
+                rel: 'noreferrer',
+              },
+              'CC BY-NC-SA 4.0',
+            ),
+            ' 许可协议发布。',
+          ]),
+        ]),
     })
-  }
+  },
 } satisfies Theme

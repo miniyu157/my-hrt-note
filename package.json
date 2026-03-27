@@ -6,15 +6,16 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
+    "docs:dev": "vitepress dev --host",
+    "docs:build": "vitepress build --host",
+    "docs:preview": "vitepress preview --host"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "@nolebase/vitepress-plugin-git-changelog": "^2.18.2",
+    "@vite-pwa/vitepress": "^1.1.0",
     "vitepress": "^1.6.4",
     "vitepress-sidebar": "^1.33.1"
   }
