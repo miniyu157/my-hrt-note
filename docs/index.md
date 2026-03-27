@@ -1,6 +1,6 @@
 # **梦花的 HRT 笔记**
 
-<img src="/avatar/yumeka_avatar.jpg" alt="头像" width="120" align="right"/>
+<img src="/avatar/avatar.jpg" alt="头像" width="120" align="right"/>
 
 你好呀👋，我是 Yumeka，也可以叫我梦花。
 
