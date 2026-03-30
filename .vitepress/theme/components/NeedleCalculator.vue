@@ -456,9 +456,9 @@ tr:last-child td {
 }
 
 .color-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  border-radius: 4px;
   display: inline-block;
   box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.1);
 }
