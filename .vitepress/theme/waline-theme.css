@@ -1,0 +1,84 @@
+:root {
+  /* 核心基础色 */
+  --waline-theme-color: var(--vp-c-brand-1);
+  --waline-active-color: var(--vp-c-brand-2);
+  --waline-color: var(--vp-c-text-1);
+  --waline-bg-color: var(--vp-c-bg);
+  --waline-bg-color-light: var(--vp-c-bg-soft);
+  --waline-bg-color-hover: var(--vp-c-bg-mute);
+  --waline-border-color: var(--vp-c-divider);
+  --waline-disable-bg-color: var(--vp-c-bg-alt);
+  --waline-disable-color: var(--vp-c-text-3);
+  --waline-code-bg-color: var(--vp-c-bg-soft);
+
+  --waline-info-bg-color: var(--vp-c-bg-mute);
+  --waline-info-color: var(--vp-c-text-2);
+  --waline-badge-color: var(--vp-c-brand-1);
+
+  --waline-border: 1px solid var(--vp-c-divider);
+  --waline-box-shadow: none;
+  --waline-avatar-radius: 50%;
+}
+.wl-panel {
+  border-radius: 8px;
+  background-color: var(--vp-c-bg-soft);
+  transition: background-color 0.3s ease;
+  overflow: hidden;
+}
+
+.wl-editor {
+  font-family: var(--vp-font-family-base);
+  resize: none;
+  min-height: 120px;
+  transition: min-height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+  scrollbar-width: none;
+}
+
+.wl-editor::-webkit-scrollbar {
+  display: none;
+}
+
+.wl-actions > :first-child {
+  display: none !important;
+}
+
+.wl-header,
+.wl-footer {
+  max-height: 80px;
+  opacity: 1;
+  visibility: visible;
+  overflow: hidden;
+  transition:
+    max-height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    margin 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    padding 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wl-actions {
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
+    visibility 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.wl-panel:not(:focus-within) .wl-header,
+.wl-panel:not(:focus-within) .wl-footer {
+  max-height: 0;
+  opacity: 0;
+  visibility: hidden;
+  margin: 0;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: none;
+}
+
+.wl-panel:not(:focus-within) .wl-actions {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.wl-panel:not(:focus-within) .wl-editor {
+  min-height: 42px;
+}

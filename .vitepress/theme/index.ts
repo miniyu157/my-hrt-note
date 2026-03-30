@@ -4,6 +4,7 @@ import DefaultTheme from 'vitepress/theme'
 import Disclaimer from './components/Disclaimer.vue'
 import ReadingProgress from './components/ReadingProgress.vue'
 import ReloadPrompt from './components/ReloadPrompt.vue'
+import MyWaline from './components/MyWaline.vue'
 import './custom.css'
 
 import { NolebaseGitChangelogPlugin } from '@nolebase/vitepress-plugin-git-changelog/client'
@@ -31,6 +32,7 @@ export default {
     return h(DefaultTheme.Layout, null, {
       'layout-top': () => h(ReadingProgress),
       'layout-bottom': () => h(ReloadPrompt),
+      'doc-after': () => h(MyWaline),
       'doc-footer-before': () =>
         h('div', { class: 'custom-license' }, [
           h('p', null, [
