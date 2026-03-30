@@ -17,7 +17,7 @@
           </div>
         </div>
         <div class="input-group">
-          <label for="depth-input">预期最少刺入深度 (cm)</label>
+          <label for="depth-input">预期最少穿透肌肉深度 (cm)</label>
           <div class="input-control">
             <input
               id="depth-input"
