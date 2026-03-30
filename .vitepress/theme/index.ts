@@ -2,6 +2,7 @@ import { h } from 'vue'
 import type { Theme } from 'vitepress'
 import DefaultTheme from 'vitepress/theme'
 import Disclaimer from './components/Disclaimer.vue'
+import NeedleCalculator from './components/NeedleCalculator.vue'
 import ReadingProgress from './components/ReadingProgress.vue'
 import ReloadPrompt from './components/ReloadPrompt.vue'
 import MyWaline from './components/MyWaline.vue'
@@ -14,6 +15,7 @@ export default {
   extends: DefaultTheme,
   enhanceApp({ app }) {
     app.component('Disclaimer', Disclaimer)
+    app.component('NeedleCalculator', NeedleCalculator)
     app.use(NolebaseGitChangelogPlugin, {
       locales: {
         'zh-Hans': {
