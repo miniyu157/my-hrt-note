@@ -1,5 +1,4 @@
 :root {
-  /* 核心基础色 */
   --waline-theme-color: var(--vp-c-brand-1);
   --waline-active-color: var(--vp-c-brand-2);
   --waline-color: var(--vp-c-text-1);
@@ -18,20 +17,75 @@
   --waline-border: 1px solid var(--vp-c-divider);
   --waline-box-shadow: none;
   --waline-avatar-radius: 50%;
-}
-.wl-panel {
-  border-radius: 8px;
-  background-color: var(--vp-c-bg-soft);
-  transition: background-color 0.3s ease;
-  overflow: hidden;
+  --waline-card-items-radius: 8px;
 }
 
-.wl-editor {
-  font-family: var(--vp-font-family-base);
-  resize: none;
-  min-height: 120px;
-  transition: min-height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-  scrollbar-width: none;
+div[data-waline] {
+  margin-top: 1.5em;
+}
+
+.wl-comment {
+  .wl-panel {
+    /* 消除输入框容器的上右边距 */
+    margin-top: 0 !important;
+    margin-right: 0 !important;
+
+    border-radius: 8px;
+    background-color: var(--vp-c-bg-soft);
+    transition: background-color 0.3s ease;
+    overflow: hidden;
+  }
+  /* 未登录时消除输入框容器的左侧边距 */
+  &:not(:has(.wl-login-info)) .wl-panel {
+    margin-left: 0 !important;
+  }
+  /* 消除账户信息框容器的上边距 */
+  .wl-login-info {
+    margin-top: 0 !important;
+  }
+
+  .wl-editor {
+    font-family: var(--vp-font-family-base);
+    resize: none;
+    min-height: 120px;
+    transition: min-height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
+    scrollbar-width: none;
+  }
+}
+
+.wl-card {
+  border: none !important;
+}
+
+.wl-card-item {
+  border: var(--waline-border);
+}
+
+.wl-card-item + .wl-card-item {
+  border-top: none;
+}
+
+.wl-card-item:first-child {
+  border-top-left-radius: var(--waline-card-items-radius);
+  border-top-right-radius: var(--waline-card-items-radius);
+}
+
+.wl-card-item:last-child {
+  border-bottom-left-radius: var(--waline-card-items-radius);
+  border-bottom-right-radius: var(--waline-card-items-radius);
+}
+
+.wl-reply-to {
+  line-height: 1;
+  margin: 0 !important;
+}
+
+.wl-admin-actions {
+  display: none !important;
+}
+
+.wl-meta {
+  display: none !important;
 }
 
 .wl-editor::-webkit-scrollbar {
@@ -42,43 +96,62 @@
   display: none !important;
 }
 
+/* 以下为动画代码 */
+.wl-panel {
+  --wl-anim-dur: 0.4s;
+  --wl-anim-ease: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --wl-fade-dur: 0.2s;
+}
 .wl-header,
 .wl-footer {
-  max-height: 80px;
-  opacity: 1;
-  visibility: visible;
+  max-height: 100px;
   overflow: hidden;
-  transition:
-    max-height 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-    opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
-    margin 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
-    padding 0.4s cubic-bezier(0.2, 0.8, 0.2, 1);
-}
-
-.wl-actions {
   opacity: 1;
   visibility: visible;
+  will-change: max-height, margin, padding;
   transition:
-    opacity 0.3s cubic-bezier(0.2, 0.8, 0.2, 1),
-    visibility 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    max-height var(--wl-anim-dur) var(--wl-anim-ease),
+    margin var(--wl-anim-dur) var(--wl-anim-ease),
+    padding var(--wl-anim-dur) var(--wl-anim-ease),
+    opacity var(--wl-anim-dur) var(--wl-anim-ease);
+}
+.wl-header-item,
+.wl-actions,
+.wl-info {
+  opacity: 1;
+  will-change: opacity;
+  transition: opacity var(--wl-fade-dur) ease-out 0.15s;
 }
 
+.wl-editor {
+  transition: min-height var(--wl-anim-dur) var(--wl-anim-ease);
+}
 .wl-panel:not(:focus-within) .wl-header,
 .wl-panel:not(:focus-within) .wl-footer {
   max-height: 0;
   opacity: 0;
   visibility: hidden;
-  margin: 0;
+  margin-top: 0;
+  margin-bottom: 0;
   padding-top: 0;
   padding-bottom: 0;
-  border: none;
+  border-color: transparent;
+  transition:
+    opacity var(--wl-fade-dur) ease-in,
+    max-height var(--wl-anim-dur) var(--wl-anim-ease) 0.15s,
+    margin var(--wl-anim-dur) var(--wl-anim-ease) 0.15s,
+    padding var(--wl-anim-dur) var(--wl-anim-ease) 0.15s,
+    visibility 0s calc(var(--wl-anim-dur) + 0.15s);
 }
 
-.wl-panel:not(:focus-within) .wl-actions {
+.wl-panel:not(:focus-within) .wl-header-item,
+.wl-panel:not(:focus-within) .wl-actions,
+.wl-panel:not(:focus-within) .wl-info {
   opacity: 0;
-  visibility: hidden;
+  transition: opacity 0.15s ease-in;
 }
 
 .wl-panel:not(:focus-within) .wl-editor {
   min-height: 42px;
+  transition: min-height var(--wl-anim-dur) var(--wl-anim-ease) 0.15s;
 }
