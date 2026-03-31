@@ -225,6 +225,7 @@ div[data-waline] {
   display: grid;
   gap: 4px;
   margin: 8px 0;
+  max-width: 260px;
 }
 
 .wl-gallery img {
