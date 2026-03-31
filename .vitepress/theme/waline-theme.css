@@ -284,3 +284,32 @@ div[data-waline] {
   z-index: 101;
   object-fit: contain !important;
 }
+
+/* --- 将回复标识放到时间后面--- */
+.wl-card > .wl-content {
+  display: contents;
+}
+
+.wl-content > *:not(.wl-reply-to) {
+  order: 2;
+  width: 100%;
+}
+
+.wl-content > .wl-reply-to {
+  order: 0;
+  width: auto;
+}
+
+.wl-content > .wl-reply-to span {
+  display: none;
+}
+
+.wl-reply-to::before {
+  content: '回复给';
+  color: var(--waline-info-color);
+  margin-right: 4px;
+}
+
+.wl-reply-to span {
+  display: none;
+}
