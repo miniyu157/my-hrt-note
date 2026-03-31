@@ -263,10 +263,11 @@ const recommendedNeedles = computed(() => {
   padding: 6px 32px 6px 10px;
   border: 1px solid var(--vp-c-divider, #ccc);
   border-radius: 4px;
-  background-color: #ffffff;
+  background-color: var(--vp-c-bg, #ffffff);
   color: var(--vp-c-text-1, #333);
   font-size: 14px;
   outline: none;
+  transition: border-color 0.2s;
 }
 
 .input-control input:focus {
@@ -389,7 +390,7 @@ const recommendedNeedles = computed(() => {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: var(--vp-c-bg, #ffffff);
   border: 2px solid var(--vp-c-brand-1, #3eaf7c);
   cursor: grab;
 }
@@ -403,7 +404,7 @@ const recommendedNeedles = computed(() => {
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background-color: #ffffff;
+  background-color: var(--vp-c-bg, #ffffff);
   border: 2px solid var(--vp-c-brand-1, #3eaf7c);
   cursor: grab;
 }
@@ -468,5 +469,36 @@ tr:last-child td {
   text-align: center;
   font-size: 13px;
   color: var(--vp-c-text-2, #666);
+}
+
+@media (max-width: 640px) {
+  .rec-header {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 12px;
+  }
+
+  .filter-control {
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+
+  .dual-slider {
+    flex-grow: 1;
+    margin-left: 12px;
+    max-width: none;
+  }
+
+  th,
+  td {
+    padding: 8px 10px;
+    white-space: nowrap !important;
+  }
+
+  th:last-child,
+  td:last-child {
+    width: auto;
+  }
 }
 </style>
