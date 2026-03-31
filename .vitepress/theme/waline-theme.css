@@ -96,6 +96,65 @@ div[data-waline] {
   display: none !important;
 }
 
+/* twitter 风格的按钮布局 */
+.wl-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.wl-reply-wrapper {
+  margin-top: 1em;
+}
+
+.wl-card > * {
+  order: 10;
+  width: 100%;
+}
+
+.wl-head {
+  display: contents;
+}
+
+.wl-head > *:not(.wl-comment-actions) {
+  width: auto;
+}
+
+.wl-card > .wl-content {
+  order: 2;
+}
+
+.wl-head > .wl-comment-actions {
+  order: 3;
+  width: 100%;
+  max-width: 80%;
+  display: flex !important;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wl-quote:not(:empty) {
+  margin-top: 1em;
+}
+
+.wl-comment-actions button {
+  gap: 0.35rem;
+}
+
+.wl-comment-actions button svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+.wl-comment-actions button:hover {
+  color: var(--waline-active-color);
+  background-color: var(--waline-bg-color-hover);
+}
+
+.wl-comment-actions button:active svg {
+  transform: scale(0.85);
+}
+
 /* 以下为动画代码 */
 .wl-panel {
   --wl-anim-dur: 0.4s;
