@@ -214,3 +214,73 @@ div[data-waline] {
   min-height: 42px;
   transition: min-height var(--wl-anim-dur) var(--wl-anim-ease) 0.15s;
 }
+
+/* 相册布局 */
+.wl-content img {
+  border-radius: var(--waline-card-items-radius);
+  max-width: 100%;
+}
+
+.wl-gallery {
+  display: grid;
+  gap: 4px;
+  margin: 8px 0;
+}
+
+.wl-gallery img {
+  margin: 0 !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  cursor: zoom-in;
+}
+
+.wl-gallery-1 {
+  grid-template-columns: minmax(auto, 100%);
+}
+
+.wl-gallery-1 img {
+  max-height: 320px;
+  object-fit: contain;
+  justify-self: start;
+}
+
+.wl-gallery-2,
+.wl-gallery-4 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.wl-gallery-2 img,
+.wl-gallery-4 img {
+  aspect-ratio: 1 / 1;
+}
+
+.wl-gallery-3 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.wl-gallery-3 img {
+  aspect-ratio: 1 / 1;
+}
+
+.wl-gallery-3 img:first-child {
+  grid-column: span 2;
+  aspect-ratio: 2 / 1;
+}
+
+.wl-gallery:not(.wl-gallery-1):not(.wl-gallery-2):not(.wl-gallery-3):not(.wl-gallery-4) {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.wl-gallery:not(.wl-gallery-1):not(.wl-gallery-2):not(.wl-gallery-3):not(.wl-gallery-4) img {
+  aspect-ratio: 1 / 1;
+}
+
+.medium-zoom-overlay {
+  z-index: 100;
+}
+
+.medium-zoom-image--opened {
+  z-index: 101;
+  object-fit: contain !important;
+}
