@@ -1,14 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted, watch } from 'vue'
-import { useData } from 'vitepress'
+import { ref, onMounted, onUnmounted } from 'vue'
 
-const { page } = useData()
 const scale = ref(0)
 let ticking = false
 
 const update = () => {
-  if (page.value.relativePath === 'index.md') return
-
   const { scrollTop, scrollHeight, clientHeight } = document.documentElement
   const h = scrollHeight - clientHeight
   scale.value = h > 0 ? scrollTop / h : 0
@@ -27,23 +23,13 @@ onMounted(() => {
   update()
 })
 
-watch(
-  () => page.value.relativePath,
-  (path) => {
-    scale.value = 0
-    if (path !== 'index.md') {
-      requestAnimationFrame(update)
-    }
-  },
-)
-
 onUnmounted(() => {
   window.removeEventListener('scroll', onScroll)
 })
 </script>
 
 <template>
-  <div v-show="page.relativePath !== 'index.md'" class="reading-progress-container">
+  <div class="reading-progress-container">
     <div class="reading-progress-bar" :style="{ clipPath: `inset(0 ${100 - scale * 100}% 0 0)` }" />
     <div
       class="reading-progress-icon"
